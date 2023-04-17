@@ -17,10 +17,10 @@ final class SingleViewController: NSViewController {
   }()
 
   /// Sidebar data source.
-  private let snapshotBinding: Binding<DiffableDataSourceSnapshot>
+  private let snapshotBinding: Binding<DiffableDataSourceSnapshot<NSObject>>
 
   /// Creates a new editor for a single sidebar item.
-  init(binding: Binding<DiffableDataSourceSnapshot>) {
+  init(binding: Binding<DiffableDataSourceSnapshot<NSObject>>) {
     self.snapshotBinding = binding
 
     super.init(nibName: nil, bundle: nil)

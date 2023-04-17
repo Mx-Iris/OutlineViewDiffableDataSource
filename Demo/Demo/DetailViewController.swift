@@ -34,7 +34,7 @@ final class DetailViewController: NSViewController {
   }()
 
   /// Creates a new container for editing sidebar contents.
-  init(snapshotBinding: Binding<DiffableDataSourceSnapshot>) {
+  init(snapshotBinding: Binding<DiffableDataSourceSnapshot<NSObject>>) {
     self.emptyViewController = .init(binding: snapshotBinding)
     self.singleViewController = .init(binding: snapshotBinding)
     self.multiViewController = .init(binding: snapshotBinding)

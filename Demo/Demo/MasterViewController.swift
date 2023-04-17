@@ -34,8 +34,8 @@ final class MasterViewController: NSViewController {
   }()
 
   /// Diffable data source similar to `NSCollectionViewDiffableDataSource`.
-  private lazy var dataSource: OutlineViewDiffableDataSource = {
-    let source = OutlineViewDiffableDataSource(outlineView: scrollableOutlineView.outlineView)
+  private lazy var dataSource: OutlineViewDiffableDataSource<NSObject> = {
+    let source = OutlineViewDiffableDataSource<NSObject>(outlineView: scrollableOutlineView.outlineView)
     source.draggingHandlers = OutlineViewDiffableDataSource.DraggingHandlers(validateDrop: { _, drop in
 
       // Option-, Control- and Command- modifiers are disabled
@@ -79,7 +79,7 @@ extension MasterViewController {
 extension MasterViewController {
 
   /// Read-write snapshot of the sidebar data.
-  var snapshotBinding: Binding<DiffableDataSourceSnapshot> {
+  var snapshotBinding: Binding<DiffableDataSourceSnapshot<NSObject>> {
     .init(get: { [dataSource] in
       dataSource.snapshot()
     }, set: { [dataSource] snapshot in

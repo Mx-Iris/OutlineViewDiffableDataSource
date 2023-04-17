@@ -17,10 +17,10 @@ final class EmptyViewController: NSViewController {
   }()
 
   /// Sidebar data source.
-  private var snapshotBinding: Binding<DiffableDataSourceSnapshot>
+  private var snapshotBinding: Binding<DiffableDataSourceSnapshot<NSObject>>
 
   /// Creates a new editor for sidebar contents.
-  init(binding: Binding<DiffableDataSourceSnapshot>) {
+  init(binding: Binding<DiffableDataSourceSnapshot<NSObject>>) {
     self.snapshotBinding = binding
 
     super.init(nibName: nil, bundle: nil)
@@ -77,7 +77,7 @@ private extension EmptyViewController {
   /// Replaces the whole tree with the given contents.
   @IBAction func fillSidebar(_ sender: Any?) {
     guard let textView = scrollableEditor.documentView as? NSTextView else { return }
-    var snapshot: DiffableDataSourceSnapshot = .init()
+    var snapshot: DiffableDataSourceSnapshot<NSObject> = .init()
     snapshot.fillItem(nil, with: textView.string)
     snapshotBinding.wrappedValue = snapshot
   }

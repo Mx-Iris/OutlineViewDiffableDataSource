@@ -6,10 +6,10 @@ import OutlineViewDiffableDataSource
 final class MultiViewController: NSViewController {
 
   /// Sidebar data source.
-  private let snapshotBinding: Binding<DiffableDataSourceSnapshot>
+  private let snapshotBinding: Binding<DiffableDataSourceSnapshot<NSObject>>
 
   /// Creates a new editor for a multiple sidebar items.
-  init(binding: Binding<DiffableDataSourceSnapshot>) {
+  init(binding: Binding<DiffableDataSourceSnapshot<NSObject>>) {
     self.snapshotBinding = binding
 
     super.init(nibName: nil, bundle: nil)
